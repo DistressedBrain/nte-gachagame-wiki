@@ -38,7 +38,7 @@ async function fetchSubredditData(subName) {
     const cleanSub = subName.trim().toLowerCase();
     if (!cleanSub) throw new Error('Empty subreddit name');
 
-    const CORS_PROXY = 'https://reddit-worker.walther-pranz.workers.dev/?url=';
+    const CORS_PROXY = 'https://reddit-worker.distressedbrain.workers.dev/?url=';
 
     async function fetchWithProxy(url) {
         const response = await fetch(CORS_PROXY + encodeURIComponent(url));
