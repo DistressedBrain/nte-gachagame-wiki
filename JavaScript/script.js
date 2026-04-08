@@ -25,6 +25,10 @@ const SUBREDDITS_TO_SHOW = [
     "illicaMains",
     "HotoriMains",
     "ExeMains",
+    "KuharaMains",
+    "jinMains",
+    "RabbitMains",
+    "LingKoMains",
     "AureliaMains"
 ];
 const cardsGrid = document.getElementById('cardsGrid');
@@ -253,6 +257,9 @@ function renderAllSubreddits() {
     });
 }
 
+renderAllSubreddits();
+console.log("✅ 3-column grid ready — click any card to go to subreddit");
+console.log("Current subreddits:", SUBREDDITS_TO_SHOW);
 renderAllSubreddits();
 console.log("✅ 3-column grid ready — click any card to go to subreddit");
 console.log("Current subreddits:", SUBREDDITS_TO_SHOW);
