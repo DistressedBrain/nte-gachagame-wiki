@@ -1,5 +1,4 @@
 const SUBREDDITS_TO_SHOW = [
-    //"DokkiMains",
     "NanallyMains",
     "HathorMains",
     "ElfideMains",
@@ -26,7 +25,7 @@ const SUBREDDITS_TO_SHOW = [
     "illicaMains",
     "HotoriMains",
     "ExeMains",
-    //"AureliaMains"
+    "AureliaMains"
 ];
 const cardsGrid = document.getElementById('cardsGrid');
 
