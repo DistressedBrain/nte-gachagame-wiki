@@ -8,13 +8,13 @@
             "DaffodillMains", "FadiaMains", "HanielMains", "HaniaMains", "Hethereau",
             "JiuyuanMains", "LacrimosaMains", "NitsaMains", "ChaosMains", "LingkoMains",
             "AkaneRinMains", "ElymsMains", "illicaMains", "HotoriMains", "ExeMains",
-            "KuharaMains", "RabbitMains", "AureliaMains", "JensonMains"
+            "KuharaMains", "jinMains", "RabbitMains", "AureliaMains", "JensonMains"
         ];
 
         const cardsGrid = document.getElementById('cardsGrid');
         const CORS_PROXY = 'https://reddit-worker.distressedbrain.workers.dev/?url=';
 
-        // ----- UTILS: safe escaping -----
+       
         function escapeHtml(str) {
             if (!str) return '';
             return String(str).replace(/[&<>]/g, function(m) {
@@ -39,7 +39,7 @@
             });
         }
 
-        // fetch with proxy & robust parsing
+
         async function fetchSubredditData(subName) {
             const cleanSub = subName.trim().toLowerCase();
             if (!cleanSub) throw new Error('Invalid subreddit');
@@ -97,7 +97,7 @@
             };
         }
 
-        // ----- CREATE CARD (with loading placeholder) -----
+
         function createCardElement(subredditName) {
             const card = document.createElement('div');
             card.className = 'subreddit-card';
@@ -118,12 +118,12 @@
             `;
             card.appendChild(contentDiv);
 
-            // start async population (fire and forget)
+
             populateCard(card, subredditName);
             return card;
         }
 
-        // ----- POPULATE CARD WITH DATA + SAFE AVATAR FALLBACK -----
+
         async function populateCard(cardElement, subredditName) {
             const contentDiv = cardElement.querySelector('.card-content');
             if (!contentDiv) return;
@@ -149,7 +149,7 @@
                     ? `<img src="${escapeHtmlAttr(data.iconUrl)}" alt="icon" loading="lazy">`
                     : '<span style="font-size:1.8rem;">🐱</span>';
 
-                // hot posts markup
+                // hot posts 
                 let postsHtml = '';
                 if (data.postsPreview && data.postsPreview.length) {
                     postsHtml = `<div class="hot-post-preview"><div>🔥 HOT POSTS</div>`;
@@ -188,7 +188,7 @@
                     </div>
                 `;
 
-                // --- robust avatar error handling (replaces broken img with cat emoji) ---
+             
                 const avatarContainer = contentDiv.querySelector('.card-avatar');
                 const imgElement = avatarContainer?.querySelector('img');
                 if (imgElement) {
@@ -216,7 +216,7 @@
         // small delay utility (avoid overwhelming)
         const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-        // ----- RENDER ALL CARDS (with staggered creation) -----
+
         async function renderAllSubreddits() {
             if (!cardsGrid) return;
             cardsGrid.innerHTML = '';
@@ -229,7 +229,7 @@
                 return;
             }
 
-            // Build cards one by one with tiny delay (better perceived performance)
+
             for (const subName of SUBREDDITS_TO_SHOW) {
                 if (subName && subName.trim()) {
                     const card = createCardElement(subName.trim());
@@ -241,7 +241,7 @@
             console.log(`✅ NTE dashboard ready — ${SUBREDDITS_TO_SHOW.length} communities`);
         }
 
-        // start everything
+
         renderAllSubreddits();
 
     })();
