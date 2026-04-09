@@ -7,7 +7,7 @@
         "DaffodillMains", "FadiaMains", "HanielMains", "HaniaMains", "Hethereau",
         "JiuyuanMains", "LacrimosaMains", "NitsaMains", "ChaosMains", "LingkoMains",
         "AkaneRinMains", "ElymsMains", "illicaMains", "HotoriMains", "ExeMains",
-        "KuharaMains", "jinMains", "RabbitMains", "AureliaMains", "JensonMains"
+        "KuharaMains", "RabbitMains", "AureliaMains", "JensonMains"
     ];
 
     const CORS_PROXY = 'https://reddit-worker.distressedbrain.workers.dev/?url=';
