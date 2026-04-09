@@ -29,7 +29,8 @@ const SUBREDDITS_TO_SHOW = [
     "jinMains",
     "RabbitMains",
     "LingKoMains",
-    "AureliaMains"
+    "AureliaMains",
+    "JensonMains",
 ];
 const cardsGrid = document.getElementById('cardsGrid');
 
