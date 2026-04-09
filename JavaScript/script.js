@@ -258,6 +258,36 @@ function renderAllSubreddits() {
     });
 }
 
+// Add this delay function
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Replace your renderAllSubreddits function with this:
+async function renderAllSubreddits() {
+    cardsGrid.innerHTML = '';
+
+    if (!SUBREDDITS_TO_SHOW || SUBREDDITS_TO_SHOW.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.className = 'empty-state';
+        emptyDiv.innerHTML = '✨ No subreddits configured.';
+        cardsGrid.appendChild(emptyDiv);
+        return;
+    }
+
+    // Create cards first (all show loading)
+    const cards = [];
+    for (const subName of SUBREDDITS_TO_SHOW) {
+        if (subName && subName.trim()) {
+            const card = createCardElement(subName.trim());
+            cardsGrid.appendChild(card);
+            cards.push({ card, subName: subName.trim() });
+            // Small delay between creating cards to avoid overwhelming
+            await delay(50);
+        }
+    }
+}
+
 renderAllSubreddits();
 console.log("✅ 3-column grid ready — click any card to go to subreddit");
 console.log("Current subreddits:", SUBREDDITS_TO_SHOW);
