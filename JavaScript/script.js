@@ -258,12 +258,12 @@ function renderAllSubreddits() {
     });
 }
 
-// Add this delay function
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Replace your renderAllSubreddits function with this:
+
 async function renderAllSubreddits() {
     cardsGrid.innerHTML = '';
 
@@ -275,7 +275,7 @@ async function renderAllSubreddits() {
         return;
     }
 
-    // Create cards first (all show loading)
+
     const cards = [];
     for (const subName of SUBREDDITS_TO_SHOW) {
         if (subName && subName.trim()) {
@@ -288,9 +288,6 @@ async function renderAllSubreddits() {
     }
 }
 
-renderAllSubreddits();
-console.log("✅ 3-column grid ready — click any card to go to subreddit");
-console.log("Current subreddits:", SUBREDDITS_TO_SHOW);
 renderAllSubreddits();
 console.log("✅ 3-column grid ready — click any card to go to subreddit");
 console.log("Current subreddits:", SUBREDDITS_TO_SHOW);
